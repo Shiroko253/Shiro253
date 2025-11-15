@@ -36,25 +36,33 @@ const SidebarModule = {
     sidebar: null,
     toggleButton: null,
     overlay: null,
-    isCollapsed: false,
+    isExpanded: false,
 
     /**
      * 切換側邊欄狀態
      */
     toggleSidebar() {
-        this.isCollapsed = !this.isCollapsed;
+        console.log('toggleSidebar 被調用');
+        console.log('當前 isExpanded:', this.isExpanded);
+        console.log('視窗寬度:', window.innerWidth);
+        
+        this.isExpanded = !this.isExpanded;
         
         if (window.innerWidth <= 768) {
             // 移動設備:顯示/隱藏側邊欄
-            this.sidebar.classList.toggle('active');
+            this.sidebar.classList.toggle('expanded');
             this.overlay.classList.toggle('active');
+            console.log('移動設備模式 - 切換 expanded 類');
         } else {
             // 桌面設備:收合/展開側邊欄
-            this.sidebar.classList.toggle('collapsed');
+            this.sidebar.classList.toggle('expanded');
+            console.log('桌面設備模式 - 切換 expanded 類');
+            console.log('側邊欄類列表:', this.sidebar.classList);
         }
 
         // 保存狀態到 localStorage
-        localStorage.setItem('sidebarCollapsed', this.isCollapsed);
+        localStorage.setItem('sidebarExpanded', this.isExpanded);
+        console.log('新的 isExpanded 狀態:', this.isExpanded);
     },
 
     /**
@@ -62,9 +70,9 @@ const SidebarModule = {
      */
     closeSidebar() {
         if (window.innerWidth <= 768) {
-            this.sidebar.classList.remove('active');
+            this.sidebar.classList.remove('expanded');
             this.overlay.classList.remove('active');
-            this.isCollapsed = false;
+            this.isExpanded = false;
         }
     },
 
@@ -87,12 +95,11 @@ const SidebarModule = {
     handleResize() {
         if (window.innerWidth > 768) {
             // 桌面模式:移除移動端的 active 類
-            this.sidebar.classList.remove('active');
             this.overlay.classList.remove('active');
         } else {
-            // 移動模式:移除桌面端的 collapsed 類
-            if (!this.sidebar.classList.contains('active')) {
-                this.sidebar.classList.remove('collapsed');
+            // 移動模式:關閉側邊欄
+            if (!this.sidebar.classList.contains('expanded')) {
+                this.sidebar.classList.remove('expanded');
             }
         }
     },
@@ -101,10 +108,10 @@ const SidebarModule = {
      * 恢復保存的側邊欄狀態
      */
     restoreState() {
-        const savedState = localStorage.getItem('sidebarCollapsed');
+        const savedState = localStorage.getItem('sidebarExpanded');
         if (savedState === 'true' && window.innerWidth > 768) {
-            this.sidebar.classList.add('collapsed');
-            this.isCollapsed = true;
+            this.sidebar.classList.add('expanded');
+            this.isExpanded = true;
         }
     },
 
@@ -118,6 +125,9 @@ const SidebarModule = {
 
         if (!this.sidebar || !this.toggleButton || !this.overlay) {
             console.error('側邊欄元素未找到');
+            console.log('sidebar:', this.sidebar);
+            console.log('toggleButton:', this.toggleButton);
+            console.log('overlay:', this.overlay);
             return;
         }
 
@@ -128,7 +138,9 @@ const SidebarModule = {
         this.restoreState();
 
         // 切換按鈕點擊事件
-        this.toggleButton.addEventListener('click', () => {
+        this.toggleButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Toggle button clicked!');
             this.toggleSidebar();
         });
 
@@ -157,6 +169,7 @@ const SidebarModule = {
         });
 
         console.log('側邊欄功能已初始化 ✨');
+        console.log('當前展開狀態:', this.isExpanded);
     }
 };
 
@@ -260,6 +273,103 @@ const Utils = {
     }
 };
 
+// 工具提示模組
+const TooltipModule = {
+    tooltip: null,
+
+    /**
+     * 創建工具提示元素
+     */
+    createTooltip() {
+        this.tooltip = document.createElement('div');
+        this.tooltip.className = 'custom-tooltip';
+        document.body.appendChild(this.tooltip);
+    },
+
+    /**
+     * 顯示工具提示
+     */
+    showTooltip(element, text, event) {
+        if (!this.tooltip) return;
+
+        this.tooltip.textContent = text;
+        this.tooltip.classList.add('show');
+
+        // 計算位置
+        const rect = element.getBoundingClientRect();
+        const tooltipRect = this.tooltip.getBoundingClientRect();
+        
+        let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+        let top = rect.bottom + 10;
+
+        // 確保不超出視窗
+        if (left < 10) left = 10;
+        if (left + tooltipRect.width > window.innerWidth - 10) {
+            left = window.innerWidth - tooltipRect.width - 10;
+        }
+
+        this.tooltip.style.left = `${left}px`;
+        this.tooltip.style.top = `${top}px`;
+    },
+
+    /**
+     * 隱藏工具提示
+     */
+    hideTooltip() {
+        if (this.tooltip) {
+            this.tooltip.classList.remove('show');
+        }
+    },
+
+    /**
+     * 為元素添加工具提示
+     */
+    addTooltip(element, text) {
+        if (!element) return;
+
+        element.addEventListener('mouseenter', (e) => {
+            this.showTooltip(element, text, e);
+        });
+
+        element.addEventListener('mouseleave', () => {
+            this.hideTooltip();
+        });
+
+        element.addEventListener('mousemove', (e) => {
+            if (this.tooltip.classList.contains('show')) {
+                const rect = element.getBoundingClientRect();
+                const tooltipRect = this.tooltip.getBoundingClientRect();
+                
+                let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+                
+                if (left < 10) left = 10;
+                if (left + tooltipRect.width > window.innerWidth - 10) {
+                    left = window.innerWidth - tooltipRect.width - 10;
+                }
+                
+                this.tooltip.style.left = `${left}px`;
+            }
+        });
+    },
+
+    /**
+     * 初始化工具提示
+     */
+    init() {
+        this.createTooltip();
+
+        // 為頭像添加工具提示
+        const userIcon = document.getElementById('userIcon');
+        this.addTooltip(userIcon, '這就是我 一個開發者的一個網頁');
+
+        // 為標題添加工具提示
+        const sidebarTitle = document.getElementById('sidebarTitle');
+        this.addTooltip(sidebarTitle, 'Shiroko253');
+
+        console.log('工具提示已初始化 ✨');
+    }
+};
+
 // 主初始化函數
 function init() {
     // 等待 DOM 完全載入
@@ -269,6 +379,7 @@ function init() {
         SidebarModule.init();
         NavigationModule.init();
         AnimationModule.init();
+        TooltipModule.init();
 
         console.log('ShirokoHub 已完全初始化 🚀');
     });
@@ -284,6 +395,7 @@ if (typeof module !== 'undefined' && module.exports) {
         SidebarModule,
         NavigationModule,
         AnimationModule,
+        TooltipModule,
         Utils
     };
 }
