@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShirokoHub - 我的作品</title>
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+    <link rel="stylesheet" href="projects_styles.css">
+</head>
+<body>
+    <!-- 側邊導航欄 -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../images/usericon.png" alt="用戶頭像" class="user-icon" id="userIcon">
+            <h3 class="sidebar-title" id="sidebarTitle">ShirokoHub</h3>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">首頁</span>
+            </a></li>
+            <li><a href="about-bot.html">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">關於機器人</span>
+            </a></li>
+            <li><a href="projects.html" class="active">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">我的作品</span>
+            </a></li>
+            <li><a href="develop.html">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">開發進度</span>
+            </a></li>
+            <li><a href="daily.html">
+                <span class="nav-icon">📅</span>
+                <span class="nav-text">日常</span>
+            </a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://discord.gg/JDE9TrUsbf" target="_blank" rel="noopener" class="social-btn discord">
+                <span class="social-icon">💬</span>
+                <span class="social-text">Discord</span>
+            </a>
+            <a href="https://www.instagram.com/miya_2530_/" target="_blank" rel="noopener" class="social-btn instagram">
+                <span class="social-icon">📷</span>
+                <span class="social-text">Instagram</span>
+            </a>
+            <a href="https://github.com/Shiroko253" target="_blank" rel="noopener" class="social-btn github">
+                <span class="social-icon">💻</span>
+                <span class="social-text">GitHub</span>
+            </a>
+        </div>
+        <button class="shop-button" onclick="window.location.href='https://shoplnk.me/YSGStore?_tab=0#tab-0'">
+            <img src="../images/YSGicon.png" alt="YSG小商店" class="button-icon">
+            <span class="button-text">YSG 小商店</span>
+        </button>
+    </nav>
+
+    <!-- 遮罩層 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 主要內容區 -->
+    <div class="main-wrapper">
+        <!-- 頂部欄 -->
+        <header>
+            <div class="header-left">
+                <button class="toggle-button" id="toggleButton">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                <h1>我的作品</h1>
+            </div>
+            <div id="time-display">
+                <span id="current-time"></span>
+            </div>
+        </header>
+
+        <!-- 內容區域 -->
+        <main>
+            <!-- 作品集介紹 -->
+            <div class="content-card intro-card">
+                <h2>🎨 作品展示</h2>
+                <p class="text-content">
+                    這裡展示了我在開發過程中創建的各種專案。從 Discord 機器人到網頁開發,每一個專案都代表著我的學習歷程和技術成長。
+                </p>
+            </div>
+
+            <!-- 主要專案 -->
+            <div class="content-card">
+                <h2>⭐ 主要專案</h2>
+                <div class="projects-grid">
+                    <!-- 幽幽子機器人 -->
+                    <div class="project-card featured">
+                        <div class="project-header">
+                            <img src="../images/boticon.png" alt="幽幽子" class="project-icon">
+                            <div class="project-badge featured-badge">精選專案</div>
+                        </div>
+                        <h3>幽幽子 Discord Bot</h3>
+                        <p class="project-desc">
+                            一個多功能的 Discord 機器人,提供經濟系統、管理工具和各種實用功能。使用 Python 和 Pycord 開發,運行在 Docker 容器中。
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Pycord</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Discord Bot</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">開發時間</span>
+                                <span class="stat-value">3年+</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">狀態</span>
+                                <span class="stat-value active">持續開發中</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="about-bot.html" class="project-btn primary">
+                                <span>📖 了解更多</span>
+                            </a>
+                            <a href="https://discord.com/oauth2/authorize?client_id=852046004550238258&permissions=15&scope=bot" target="_blank" rel="noopener" class="project-btn secondary">
+                                <span>📥 邀請機器人</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ShirokoHub 網站 -->
+                    <div class="project-card featured">
+                        <div class="project-header">
+                            <img src="../images/usericon.png" alt="ShirokoHub" class="project-icon">
+                            <div class="project-badge featured-badge">精選專案</div>
+                        </div>
+                        <h3>ShirokoHub 個人網站</h3>
+                        <p class="project-desc">
+                            一個現代化的個人網站,展示我的作品、技能和開發歷程。採用響應式設計,支持深色模式和流暢動畫。
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">響應式設計</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">開發時間</span>
+                                <span class="stat-value">2024</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">狀態</span>
+                                <span class="stat-value active">持續更新中</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="../index.html" class="project-btn primary">
+                                <span>🏠 返回首頁</span>
+                            </a>
+                            <a href="https://github.com/Shiroko253" target="_blank" rel="noopener" class="project-btn secondary">
+                                <span>💻 查看源碼</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他專案 -->
+            <div class="content-card">
+                <h2>💡 其他專案</h2>
+                <div class="projects-grid">
+                    <!-- Flandre Bot -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon-placeholder">🎭</div>
+                        </div>
+                        <h3>Flandre Bot</h3>
+                        <p class="project-desc">
+                            我的群組專用個人機器人,提供群組管理和互動功能。
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Discord Bot</span>
+                            <span class="tag">Group Bot</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">狀態</span>
+                                <span class="stat-value active">運行中</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Shiroko253/Flandre" target="_blank" rel="noopener" class="project-btn primary">
+                                <span>💻 查看源碼</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Reimubot -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon-placeholder">🎲</div>
+                        </div>
+                        <h3>Reimubot</h3>
+                        <p class="project-desc">
+                            一個抽籤機器人,提供各種抽籤和隨機功能。
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Discord Bot</span>
+                            <span class="tag">Random</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">狀態</span>
+                                <span class="stat-value active">運行中</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Shiroko253/Reimubot" target="_blank" rel="noopener" class="project-btn primary">
+                                <span>💻 查看源碼</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- DockMon -->
+                    <div class="project-card archived">
+                        <div class="project-header">
+                            <div class="project-icon-placeholder">🐳</div>
+                            <div class="project-badge archived-badge">已停更</div>
+                        </div>
+                        <h3>DockMon</h3>
+                        <p class="project-desc">
+                            Docker 容器管理的 GUI 工具,提供直觀的視覺化界面來管理 Docker 容器。
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">GUI</span>
+                            <span class="tag">Management Tool</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-label">狀態</span>
+                                <span class="stat-value archived">已停更</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Shiroko253/DockMon" target="_blank" rel="noopener" class="project-btn secondary">
+                                <span>💻 查看源碼</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 空白卡片 - 未來專案 -->
+                    <div class="project-card placeholder">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">✨</span>
+                            <h3>更多專案即將推出</h3>
+                            <p>持續開發中...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub 連結 -->
+            <div class="content-card github-card">
+                <div class="github-content">
+                    <div class="github-icon">💻</div>
+                    <div class="github-text">
+                        <h3>查看更多專案</h3>
+                        <p>訪問我的 GitHub 查看所有開源專案和代碼</p>
+                    </div>
+                    <a href="https://github.com/Shiroko253" target="_blank" rel="noopener" class="github-btn">
+                        <span>前往 GitHub</span>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../scripts/projects_main.js"></script>
+</body>
+</html>

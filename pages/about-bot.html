@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShirokoHub - 關於機器人</title>
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+    <link rel="stylesheet" href="about-bot_styles.css">
+</head>
+<body>
+    <!-- 側邊導航欄 -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../images/usericon.png" alt="用戶頭像" class="user-icon" id="userIcon">
+            <h3 class="sidebar-title" id="sidebarTitle">ShirokoHub</h3>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">首頁</span>
+            </a></li>
+            <li><a href="about-bot.html" class="active">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">關於機器人</span>
+            </a></li>
+            <li><a href="projects.html">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">我的作品</span>
+            </a></li>
+            <li><a href="develop.html">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">開發進度</span>
+            </a></li>
+            <li><a href="daily.html">
+                <span class="nav-icon">📅</span>
+                <span class="nav-text">日常</span>
+            </a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://discord.gg/JDE9TrUsbf" target="_blank" rel="noopener" class="social-btn discord">
+                <span class="social-icon">💬</span>
+                <span class="social-text">Discord</span>
+            </a>
+            <a href="https://www.instagram.com/miya_2530_/" target="_blank" rel="noopener" class="social-btn instagram">
+                <span class="social-icon">📷</span>
+                <span class="social-text">Instagram</span>
+            </a>
+            <a href="https://github.com/Shiroko253" target="_blank" rel="noopener" class="social-btn github">
+                <span class="social-icon">💻</span>
+                <span class="social-text">GitHub</span>
+            </a>
+        </div>
+        <button class="shop-button" onclick="window.location.href='https://shoplnk.me/YSGStore?_tab=0#tab-0'">
+            <img src="../images/YSGicon.png" alt="YSG小商店" class="button-icon">
+            <span class="button-text">YSG 小商店</span>
+        </button>
+    </nav>
+
+    <!-- 遮罩層 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 主要內容區 -->
+    <div class="main-wrapper">
+        <!-- 頂部欄 -->
+        <header>
+            <div class="header-left">
+                <button class="toggle-button" id="toggleButton">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                <h1>關於機器人</h1>
+            </div>
+            <div class="header-right">
+                <img src="../images/boticon.png" alt="機器人頭像" class="bot-avatar-header">
+                <div id="time-display">
+                    <span id="current-time"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 內容區域 -->
+        <main>
+            <!-- 機器人介紹卡片 -->
+            <div class="content-card bot-intro-card">
+                <div class="card-header">
+                    <img src="../images/boticon.png" alt="幽幽子" class="bot-icon-large">
+                    <div class="card-title-group">
+                        <h2>🤖 關於機器人幽幽子</h2>
+                        <p class="card-subtitle">Discord Bot · Since 3 years ago</p>
+                    </div>
+                </div>
+                <p class="text-content">
+                    關於機器人幽幽子,我想很多人可能不知道他是做什麼的吧。機器人幽幽子主要用於一些小型伺服器,作為保護功能(還在開發中)。我從三年前開始創建這個機器人,主要是為了自娛自樂 :p
+                </p>
+                
+                <div class="invite-section">
+                    <a href="https://discord.com/oauth2/authorize?client_id=852046004550238258&permissions=15&scope=bot" target="_blank" rel="noopener" class="invite-button">
+                        <span class="invite-icon">📥</span>
+                        <span>邀請幽幽子到你的伺服器</span>
+                    </a>
+                </div>
+
+                <div class="bot-showcase">
+                    <img src="../images/yuyuko.gif" alt="幽幽子" class="bot-image">
+                </div>
+            </div>
+
+            <!-- 指令列表卡片 -->
+            <div class="content-card">
+                <h2>📋 指令列表與功能</h2>
+                
+                <div class="command-section">
+                    <h3 class="section-title">⚙️ 通用指令</h3>
+                    <div class="command-grid">
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/about-bot</span>
+                                <span class="command-badge general">通用</span>
+                            </div>
+                            <p class="command-desc">查看幽幽子的詳細資訊</p>
+                        </div>
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/invite</span>
+                                <span class="command-badge general">通用</span>
+                            </div>
+                            <p class="command-desc">獲取機器人的邀請鏈接</p>
+                        </div>
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/ping</span>
+                                <span class="command-badge general">通用</span>
+                            </div>
+                            <p class="command-desc">查看機器人和伺服器的延遲</p>
+                        </div>
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/time</span>
+                                <span class="command-badge general">通用</span>
+                            </div>
+                            <p class="command-desc">檢查幽幽子待機時間</p>
+                        </div>
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/quiz</span>
+                                <span class="command-badge general">通用</span>
+                            </div>
+                            <p class="command-desc">快速問答小遊戲</p>
+                        </div>
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/feedback</span>
+                                <span class="command-badge general">通用</span>
+                            </div>
+                            <p class="command-desc">回報錯誤或問題給開發者</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="command-section">
+                    <h3 class="section-title">💰 經濟系統</h3>
+                    <div class="command-grid">
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/balance</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">查看目前的幽靈幣餘額</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/leaderboard</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">查看富豪榜和稅收排行榜</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/choose_job</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">選擇一份工作來賺取金錢</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/reset_job</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">重置你選擇的工作</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/work</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">執行工作賺錢 (冷卻: 60秒)</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/shop</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">造訪商店購買解壓物品</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/backpack</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">查看你的背包物品</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/server_bank</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">查看幽幽子的虛擬銀行</p>
+                        </div>
+                        <div class="command-card economy">
+                            <div class="command-header">
+                                <span class="command-name">/pay</span>
+                                <span class="command-badge economy">經濟</span>
+                            </div>
+                            <p class="command-desc">轉帳金錢給其他玩家</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="command-section">
+                    <h3 class="section-title">🎣 釣魚系統</h3>
+                    <div class="command-grid">
+                        <div class="command-card fishing">
+                            <div class="command-header">
+                                <span class="command-name">/fish</span>
+                                <span class="command-badge fishing">釣魚</span>
+                            </div>
+                            <p class="command-desc">開始釣魚 (可能釣到垃圾...)</p>
+                        </div>
+                        <div class="command-card fishing">
+                            <div class="command-header">
+                                <span class="command-name">/fish_back</span>
+                                <span class="command-badge fishing">釣魚</span>
+                            </div>
+                            <p class="command-desc">查看或展示釣魚背包</p>
+                        </div>
+                        <div class="command-card fishing">
+                            <div class="command-header">
+                                <span class="command-name">/fish_shop</span>
+                                <span class="command-badge fishing">釣魚</span>
+                            </div>
+                            <p class="command-desc">出售你的漁獲</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="command-section">
+                    <h3 class="section-title">🎰 賭博系統</h3>
+                    <div class="command-grid">
+                        <div class="command-card gambling">
+                            <div class="command-header">
+                                <span class="command-name">/blackjack</span>
+                                <span class="command-badge gambling">賭博</span>
+                            </div>
+                            <p class="command-desc">玩21點 (特殊職業獲得2倍獎勵!)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="command-section">
+                    <h3 class="section-title">🛡️ 管理員指令</h3>
+                    <div class="command-grid">
+                        <div class="command-card admin">
+                            <div class="command-header">
+                                <span class="command-name">/ban</span>
+                                <span class="command-badge admin">管理員</span>
+                            </div>
+                            <p class="command-desc">禁止用戶進入伺服器</p>
+                        </div>
+                        <div class="command-card admin">
+                            <div class="command-header">
+                                <span class="command-name">/kick</span>
+                                <span class="command-badge admin">管理員</span>
+                            </div>
+                            <p class="command-desc">踢出伺服器用戶</p>
+                        </div>
+                        <div class="command-card admin">
+                            <div class="command-header">
+                                <span class="command-name">/start_giveaway</span>
+                                <span class="command-badge admin">管理員</span>
+                            </div>
+                            <p class="command-desc">開始抽獎活動</p>
+                        </div>
+                        <div class="command-card admin">
+                            <div class="command-header">
+                                <span class="command-name">/timeout</span>
+                                <span class="command-badge admin">管理員</span>
+                            </div>
+                            <p class="command-desc">禁言用戶一段時間</p>
+                        </div>
+                        <div class="command-card admin">
+                            <div class="command-header">
+                                <span class="command-name">/untimeout</span>
+                                <span class="command-badge admin">管理員</span>
+                            </div>
+                            <p class="command-desc">解除用戶的禁言</p>
+                        </div>
+                        <div class="command-card admin">
+                            <div class="command-header">
+                                <span class="command-name">/tax</span>
+                                <span class="command-badge admin">管理員</span>
+                            </div>
+                            <p class="command-desc">"朕在此宣布徵收發言稅!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="command-section">
+                    <h3 class="section-title">ℹ️ 信息查詢</h3>
+                    <div class="command-grid">
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/server_info</span>
+                                <span class="command-badge info">信息</span>
+                            </div>
+                            <p class="command-desc">查看伺服器詳細資訊</p>
+                        </div>
+                        <div class="command-card">
+                            <div class="command-header">
+                                <span class="command-name">/user_info</span>
+                                <span class="command-badge info">信息</span>
+                            </div>
+                            <p class="command-desc">查看用戶個人資料</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="../scripts/about-bot_main.js"></script>
+</body>
+</html>
