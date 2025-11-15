@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShirokoHub</title>
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 側邊導航欄 -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/usericon.png" alt="我的個人頭像" class="user-icon">
+            <h3 class="sidebar-title">ShirokoHub</h3>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">首頁</span>
+            </a></li>
+            <li><a href="pages/about-bot.html">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">關於機器人</span>
+            </a></li>
+            <li><a href="pages/contact.html">
+                <span class="nav-icon">📧</span>
+                <span class="nav-text">聯絡方式</span>
+            </a></li>
+            <li><a href="pages/develop.html">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">開發進度</span>
+            </a></li>
+            <li><a href="pages/daily.html">
+                <span class="nav-icon">📅</span>
+                <span class="nav-text">日常</span>
+            </a></li>
+        </ul>
+        <button class="shop-button" onclick="window.location.href='https://shoplnk.me/YSGStore?_tab=0#tab-0'">
+            <img src="images/YSGicon.png" alt="YSG小商店" class="button-icon">
+            <span class="button-text">YSG 小商店</span>
+        </button>
+    </nav>
+
+    <!-- 遮罩層 (移動設備) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 主要內容區 -->
+    <div class="main-wrapper" id="mainWrapper">
+        <!-- 頂部欄 -->
+        <header>
+            <div class="header-left">
+                <button class="toggle-button" id="toggleButton">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                <h1>關於我</h1>
+            </div>
+            <div id="time-display">
+                <span id="current-time"></span>
+            </div>
+        </header>
+
+        <!-- 內容區域 -->
+        <main>
+            <!-- 關於我 -->
+            <div class="content-card">
+                <h2>👋 關於我</h2>
+                <p class="text-content">
+                    嗨!我是 <a href="https://github.com/Shiroko253" target="_blank" rel="noopener">Shiroko253</a>,一個普通的開發者,同時也是 Discord 機器人 <a href="https://discord.com/oauth2/authorize?client_id=852046004550238258&permissions=15&scope=bot" target="_blank" rel="noopener">幽幽子</a> 的製作者。
+                </p>
+                <p class="text-content">
+                    我喜歡探索各種有趣的技術,雖然不是什麼大神,但享受創造東西的過程。從網頁開發到機器人製作,每一個專案對我來說都是一次有趣的冒險。
+                </p>
+                <p class="text-content">
+                    至於為什麼會做這些?老實說就是因為興趣和一時的腦熱。當初看到別人的機器人覺得很酷,就想說「我也來試試看」,結果就一路做到現在了。
+                </p>
+            </div>
+
+            <!-- 關於機器人 -->
+            <div class="content-card">
+                <h2>🤖 關於幽幽子</h2>
+                <p class="text-content">
+                    <strong>幽幽子</strong>是一個多功能的 Discord 機器人,誕生於某個平凡的夜晚。當時我在想:「要是有一個可以做很多有趣事情的機器人該有多好?」於是就開始動手做了。
+                </p>
+                <p class="text-content">
+                    至於「幽幽子」這個名字的由來...老實說就是在 Pixiv 上看到一個超可愛的粉色小女孩角色,覺得這個名字聽起來很棒,就直接拿來用了。沒有什麼特別深刻的含義,就是單純覺得可愛而已 😊
+                </p>
+                
+                <h3 class="section-title">✨ 主要功能</h3>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <div class="feature-content">
+                            <strong>經濟系統</strong>
+                            <p>完整的虛擬經濟系統,讓伺服器成員可以賺取和使用虛擬貨幣</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎮</span>
+                        <div class="feature-content">
+                            <strong>娛樂功能</strong>
+                            <p>一些有趣的互動功能,增添伺服器的趣味性</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🛠️</span>
+                        <div class="feature-content">
+                            <strong>管理工具</strong>
+                            <p>協助伺服器管理,讓管理變得更輕鬆</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💬</span>
+                        <div class="feature-content">
+                            <strong>實用指令</strong>
+                            <p>各種實用的小工具和查詢功能</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-title">🚀 開發歷程</h3>
+                <p class="text-content">
+                    從最初的簡單指令到現在的多功能機器人,幽幽子經歷了無數次的更新和改進。每一次更新都是基於使用者的回饋和我自己的想法。
+                </p>
+                <p class="text-content">
+                    雖然開發過程中遇到了很多挑戰(bug 真的很多😅),但看到大家使用幽幽子時開心的樣子,就覺得一切都值得了。
+                </p>
+                <p class="text-content">
+                    目前幽幽子還在持續開發中,未來會加入更多有趣的功能。如果你有任何建議或想法,歡迎隨時告訴我!
+                </p>
+
+                <div class="cta-section">
+                    <a href="https://discord.com/oauth2/authorize?client_id=852046004550238258&permissions=15&scope=bot" target="_blank" rel="noopener" class="cta-button">
+                        <span>📥 邀請幽幽子到你的伺服器</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 技術棧 -->
+            <div class="content-card">
+                <h2>💻 使用的技術</h2>
+                <p class="text-content">
+                    在開發過程中,我主要使用以下技術和工具:
+                </p>
+                
+                <h3 class="section-title">🤖 機器人開發</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <span class="tech-name">Python</span>
+                        <span class="tech-desc">主要開發語言</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-name">Pycord</span>
+                        <span class="tech-desc">Discord 機器人框架</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-name">Docker</span>
+                        <span class="tech-desc">容器化運行環境</span>
+                    </div>
+                </div>
+
+                <h3 class="section-title">🌐 網頁開發</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <span class="tech-name">HTML</span>
+                        <span class="tech-desc">網頁結構</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-name">CSS</span>
+                        <span class="tech-desc">樣式設計</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-name">JavaScript</span>
+                        <span class="tech-desc">互動功能</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
