@@ -91,6 +91,7 @@ body::before {
     margin-bottom: 0;
     transition: var(--transition);
     box-shadow: 0 4px 15px rgba(255, 145, 77, 0.3);
+    cursor: help;
 }
 
 .sidebar.expanded .user-icon {
@@ -114,6 +115,7 @@ body::before {
     visibility: hidden;
     height: 0;
     transition: var(--transition);
+    cursor: help;
 }
 
 .sidebar.expanded .sidebar-title {
@@ -498,6 +500,7 @@ main {
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
+        width: var(--sidebar-width);
     }
 
     .sidebar.expanded {
@@ -666,6 +669,20 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 145, 77, 0.1), transparent);
+    opacity: 0;
+    transition: var(--transition);
 }
 
 .tech-item:hover {
@@ -674,16 +691,52 @@ main {
     transform: translateY(-5px);
 }
 
+.tech-item:hover::before {
+    opacity: 1;
+}
+
+.tech-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
 .tech-name {
     display: block;
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.tech-item:hover .tech-name {
+    color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.tech-version {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    background: rgba(255, 145, 77, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .tech-desc {
     display: block;
     font-size: 0.9rem;
     color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.tech-item:hover .tech-desc {
+    color: var(--text-light);
 }
