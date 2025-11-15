@@ -490,81 +490,6 @@ main {
     width: 100%;
 }
 
-/* 響應式設計 */
-@media (max-width: 1024px) {
-    :root {
-        --sidebar-width: 220px;
-    }
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-        width: var(--sidebar-width);
-    }
-
-    .sidebar.expanded {
-        transform: translateX(0);
-    }
-
-    .main-wrapper {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .sidebar.expanded ~ .main-wrapper {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    header {
-        padding: 15px 20px;
-    }
-
-    header h1 {
-        font-size: 1.4em;
-    }
-
-    #time-display {
-        font-size: 0.85em;
-        padding: 8px 12px;
-    }
-
-    main {
-        padding: 20px;
-    }
-
-    .content-card {
-        padding: 25px;
-    }
-
-    .content-card h2 {
-        font-size: 1.8rem;
-    }
-
-    .text-content {
-        font-size: 1rem;
-    }
-}
-
-/* 滾動條樣式 */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-darker);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--hover-color);
-}
-
 /* 內容區塊樣式 */
 .content-card {
     margin-bottom: 30px;
@@ -739,4 +664,113 @@ main {
 
 .tech-item:hover .tech-desc {
     color: var(--text-light);
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: var(--sidebar-width);
+    }
+
+    .sidebar.expanded {
+        transform: translateX(0);
+    }
+
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar.expanded ~ .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    #time-display {
+        font-size: 0.85em;
+        padding: 8px 12px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .content-card {
+        padding: 25px;
+    }
+
+    .content-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .text-content {
+        font-size: 1rem;
+    }
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-color);
+}
+
+/* 自定義工具提示 */
+.custom-tooltip {
+    position: fixed;
+    background: var(--bg-darker);
+    color: var(--text-light);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 145, 77, 0.3);
+    white-space: nowrap;
+}
+
+.custom-tooltip.show {
+    opacity: 1;
+}
+
+.custom-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--bg-darker);
 }
