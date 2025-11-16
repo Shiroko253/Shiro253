@@ -675,6 +675,30 @@ main {
     background: rgba(237, 66, 69, 0.1);
 }
 
+.command-card.economy {
+    border-left-color: #ffc107;
+}
+
+.command-card.economy:hover {
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.command-card.fishing {
+    border-left-color: #42a5f5;
+}
+
+.command-card.fishing:hover {
+    background: rgba(33, 150, 243, 0.1);
+}
+
+.command-card.gambling {
+    border-left-color: #ab47bc;
+}
+
+.command-card.gambling:hover {
+    background: rgba(156, 39, 176, 0.1);
+}
+
 .command-header {
     display: flex;
     justify-content: space-between;
@@ -691,6 +715,18 @@ main {
 
 .command-card.admin .command-name {
     color: var(--admin-color);
+}
+
+.command-card.economy .command-name {
+    color: #ffc107;
+}
+
+.command-card.fishing .command-name {
+    color: #42a5f5;
+}
+
+.command-card.gambling .command-name {
+    color: #ab47bc;
 }
 
 .command-badge {
@@ -714,6 +750,21 @@ main {
 .command-badge.info {
     background: rgba(87, 242, 135, 0.2);
     color: var(--info-color);
+}
+
+.command-badge.economy {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.command-badge.fishing {
+    background: rgba(33, 150, 243, 0.2);
+    color: #42a5f5;
+}
+
+.command-badge.gambling {
+    background: rgba(156, 39, 176, 0.2);
+    color: #ab47bc;
 }
 
 .command-desc {
