@@ -675,30 +675,6 @@ main {
     background: rgba(237, 66, 69, 0.1);
 }
 
-.command-card.economy {
-    border-left-color: #ffc107;
-}
-
-.command-card.economy:hover {
-    background: rgba(255, 193, 7, 0.1);
-}
-
-.command-card.fishing {
-    border-left-color: #42a5f5;
-}
-
-.command-card.fishing:hover {
-    background: rgba(33, 150, 243, 0.1);
-}
-
-.command-card.gambling {
-    border-left-color: #ab47bc;
-}
-
-.command-card.gambling:hover {
-    background: rgba(156, 39, 176, 0.1);
-}
-
 .command-header {
     display: flex;
     justify-content: space-between;
@@ -715,18 +691,6 @@ main {
 
 .command-card.admin .command-name {
     color: var(--admin-color);
-}
-
-.command-card.economy .command-name {
-    color: #ffc107;
-}
-
-.command-card.fishing .command-name {
-    color: #42a5f5;
-}
-
-.command-card.gambling .command-name {
-    color: #ab47bc;
 }
 
 .command-badge {
@@ -752,25 +716,30 @@ main {
     color: var(--info-color);
 }
 
-.command-badge.economy {
-    background: rgba(255, 193, 7, 0.2);
-    color: #ffc107;
-}
-
-.command-badge.fishing {
-    background: rgba(33, 150, 243, 0.2);
-    color: #42a5f5;
-}
-
-.command-badge.gambling {
-    background: rgba(156, 39, 176, 0.2);
-    color: #ab47bc;
-}
-
 .command-desc {
     color: var(--text-muted);
     line-height: 1.6;
     font-size: 0.95rem;
+}
+
+/* Discord Widget 卡片 */
+.discord-widget-card {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.1), rgba(114, 137, 218, 0.05));
+    border: 1px solid rgba(88, 101, 242, 0.3);
+}
+
+.discord-widget-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.discord-widget-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* 響應式設計 */
