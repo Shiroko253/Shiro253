@@ -818,6 +818,26 @@ main {
     transform: translateX(5px);
 }
 
+/* Discord Widget 卡片 */
+.discord-widget-card {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.1), rgba(114, 137, 218, 0.05));
+    border: 1px solid rgba(88, 101, 242, 0.3);
+}
+
+.discord-widget-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.discord-widget-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
 /* 響應式設計 */
 @media (max-width: 1200px) {
     .projects-grid {
