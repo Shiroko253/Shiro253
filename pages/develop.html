@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShirokoHub - 機器人更新進度</title>
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+    <link rel="stylesheet" href="develop_styles.css">
+</head>
+<body>
+    <!-- 側邊導航欄 -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../images/usericon.png" alt="用戶頭像" class="user-icon" id="userIcon">
+            <h3 class="sidebar-title" id="sidebarTitle">ShirokoHub</h3>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">首頁</span>
+            </a></li>
+            <li><a href="about-bot.html">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">關於機器人</span>
+            </a></li>
+            <li><a href="projects.html">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">我的作品</span>
+            </a></li>
+            <li><a href="develop.html" class="active">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">開發進度</span>
+            </a></li>
+            <li><a href="daily.html">
+                <span class="nav-icon">📅</span>
+                <span class="nav-text">日常</span>
+            </a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://discord.gg/JDE9TrUsbf" target="_blank" rel="noopener" class="social-btn discord">
+                <span class="social-icon">💬</span>
+                <span class="social-text">Discord</span>
+            </a>
+            <a href="https://www.instagram.com/miya_2530_/" target="_blank" rel="noopener" class="social-btn instagram">
+                <span class="social-icon">📷</span>
+                <span class="social-text">Instagram</span>
+            </a>
+            <a href="https://github.com/Shiroko253" target="_blank" rel="noopener" class="social-btn github">
+                <span class="social-icon">💻</span>
+                <span class="social-text">GitHub</span>
+            </a>
+        </div>
+        <button class="shop-button" onclick="window.location.href='https://shoplnk.me/YSGStore?_tab=0#tab-0'">
+            <img src="../images/YSGicon.png" alt="YSG小商店" class="button-icon">
+            <span class="button-text">YSG 小商店</span>
+        </button>
+    </nav>
+
+    <!-- 遮罩層 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 主要內容區 -->
+    <div class="main-wrapper">
+        <!-- 頂部欄 -->
+        <header>
+            <div class="header-left">
+                <button class="toggle-button" id="toggleButton">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                <h1>開發進度</h1>
+            </div>
+            <div class="header-right">
+                <img src="../images/boticon.png" alt="機器人頭像" class="bot-avatar-header">
+                <div id="time-display">
+                    <span id="current-time"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 內容區域 -->
+        <main>
+            <!-- 最新版本卡片 -->
+            <div class="content-card version-card">
+                <div class="card-header">
+                    <div class="version-badge-large">
+                        <span class="version-label">最新版本</span>
+                        <span class="version-number">V2.8</span>
+                    </div>
+                    <div class="update-date">
+                        <span class="date-icon">📅</span>
+                        <span>更新日期：2025-6-5</span>
+                    </div>
+                </div>
+
+                <h2>🚀 更新內容</h2>
+                <ul class="update-list">
+                    <li>
+                        <span class="list-icon">🔧</span>
+                        <span class="list-text">將以前的代碼原本的結構更改爲cogs結構 方便維護</span>
+                    </li>
+                    <li>
+                        <span class="list-icon">⚡</span>
+                        <span class="list-text">目前維護更加方便 也爲了日後方便加入更多指令</span>
+                    </li>
+                </ul>
+
+                <div class="beta-notice">
+                    <div class="beta-badge">
+                        <span class="beta-icon">🧪</span>
+                        <span class="beta-text">測試版本</span>
+                    </div>
+                    <div class="beta-info">
+                        <span class="beta-version">B3.0-1</span>
+                        <span class="beta-desc">目前正在測試着V3代碼中，正在嘗試着更變代碼風格</span>
+                    </div>
+                </div>
+
+                <div class="update-showcase">
+                    <img src="../images/update-image.gif" alt="更新示例圖片" class="update-image">
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <span class="progress-label">開發進度</span>
+                        <span class="progress-value" id="progressValue">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" data-progress="100"></div>
+                    </div>
+                    <div class="progress-status testing">
+                        <span class="status-icon">🧪</span>
+                        <span class="status-text">測試中</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 邀請與商店按鈕卡片 -->
+            <div class="content-card action-card">
+                <h2>📥 快速操作</h2>
+                <p class="text-content">
+                    想要體驗幽幽子機器人嗎？立即邀請到你的 Discord 伺服器，或是到 YSG 小店支持我們！
+                </p>
+                
+                <div class="action-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=852046004550238258&permissions=15&scope=bot" 
+                       target="_blank" 
+                       class="action-button discord-button" 
+                       rel="noopener">
+                        <img src="../images/boticon.png" alt="邀請機器人" class="action-icon">
+                        <div class="action-content">
+                            <span class="action-title">邀請機器人</span>
+                            <span class="action-subtitle">加入到你的伺服器</span>
+                        </div>
+                        <span class="action-arrow">→</span>
+                    </a>
+
+                    <a href="https://shoplnk.me/YSGStore?_tab=0#tab-0" 
+                       target="_blank" 
+                       class="action-button shop-button-large" 
+                       rel="noopener">
+                        <img src="../images/YSGicon.png" alt="YSG商店" class="action-icon">
+                        <div class="action-content">
+                            <span class="action-title">YSG 小店</span>
+                            <span class="action-subtitle">支持開發者</span>
+                        </div>
+                        <span class="action-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 版本歷史卡片 -->
+            <div class="content-card history-card">
+                <h2>📜 版本歷史</h2>
+                <p class="text-content">
+                    從 Project-Zero 的夢想開始，一路走來的開發歷程。每個版本都記載著成長的足跡。
+                </p>
+                
+                <!-- V2.x 系列 -->
+                <div class="version-section">
+                    <h3 class="version-section-title">V2.x 系列 - Cogs 重構時代</h3>
+                    <div class="version-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot active"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V2.8</div>
+                                    <div class="timeline-theme">Cogs結構重構</div>
+                                </div>
+                                <div class="timeline-date">2025-6-5</div>
+                                <div class="timeline-desc">將以前的代碼原本的結構更改爲cogs結構 方便維護</div>
+                                <div class="timeline-desc">目前維護更加方便 也爲了日後方便加入更多指令</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V2.0 - V2.7</div>
+                                    <div class="timeline-theme">Cogs化與問題修復</div>
+                                </div>
+                                <div class="timeline-date">2024-12-1 ~ 2025-5-28</div>
+                                <div class="timeline-desc">正式從 Project-Zero 分割</div>
+                                <div class="timeline-desc">全部代碼 Cogs 化以及持續找問題修復</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- V1.x 系列 -->
+                <div class="version-section">
+                    <h3 class="version-section-title">V1.x 系列 - 功能探索時代</h3>
+                    <div class="version-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.9</div>
+                                    <div class="timeline-theme">與神共鳴！</div>
+                                </div>
+                                <div class="timeline-date">2024-12-1</div>
+                                <div class="timeline-desc">修復部分錯誤</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.8</div>
+                                    <div class="timeline-theme">大量錯誤出現導致bot無法啓動!?</div>
+                                </div>
+                                <div class="timeline-date">2024-11-20</div>
+                                <div class="timeline-desc">嚴重錯誤修復中...</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.7 / B1.7-1</div>
+                                    <div class="timeline-theme">錯誤魚漏洞修復！</div>
+                                </div>
+                                <div class="timeline-date">2024-10-31</div>
+                                <div class="timeline-desc">修正大量錯誤，關閉活動指令</div>
+                                <div class="timeline-desc">B1.7-1: 持續測試部分功能以及修復錯誤</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.6 / B1.6-1 / B1.6-2</div>
+                                    <div class="timeline-theme">捕魚時期！</div>
+                                </div>
+                                <div class="timeline-date">2024-10-24 ~ 2024-10-31</div>
+                                <div class="timeline-desc">新加入 fish, fish_backpack, fish_shop</div>
+                                <div class="timeline-desc">取消鏈接驗證，虛擬貨幣改爲幽靈幣</div>
+                                <div class="timeline-desc">活動指令：找糖果</div>
+                                <div class="timeline-desc">B1.6-2: 測試全新抽籤系統</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.5 / B1.5-1/2/3</div>
+                                    <div class="timeline-theme">地下城的層數</div>
+                                </div>
+                                <div class="timeline-date">2024-9-13 ~ 2024-10-20</div>
+                                <div class="timeline-desc">新增 dungeon.yml</div>
+                                <div class="timeline-desc">更新 test-bot.py</div>
+                                <div class="timeline-desc">B1.5系列: 持續修正錯誤與測試新功能</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.4</div>
+                                    <div class="timeline-theme">RPG系統的重啓</div>
+                                </div>
+                                <div class="timeline-date">2024-9-13</div>
+                                <div class="timeline-desc">新增 trivia_questions.json (quiz 的前生)</div>
+                                <div class="timeline-desc">新增 shop_item.yml, monster.yml, monster_item.yml</div>
+                                <div class="timeline-desc">改動 RPG 怪物掉落物品和等級計算</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.3</div>
+                                    <div class="timeline-theme">測試機器人的誕生 (Flandre 的誕生)</div>
+                                </div>
+                                <div class="timeline-date">2024-9-9</div>
+                                <div class="timeline-desc">新增較多的自定義訊息</div>
+                                <div class="timeline-desc">創建 responses.py 用於隨機訊息發送</div>
+                                <div class="timeline-desc">創建 test-bot.py，名字爲芙蘭</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.2</div>
+                                    <div class="timeline-theme">連接的安全檢查與更多的自定義訊息</div>
+                                </div>
+                                <div class="timeline-date">2024-7-30</div>
+                                <div class="timeline-desc">加強安全性與自定義功能</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.1</div>
+                                    <div class="timeline-theme">現代化的開啓</div>
+                                </div>
+                                <div class="timeline-date">2024-7-29</div>
+                                <div class="timeline-desc">將原本的 prefix 改成 slash command</div>
+                                <div class="timeline-desc">加入 RPG 小遊戲系統</div>
+                                <ul class="timeline-features">
+                                    <li>/rpg - 初始化</li>
+                                    <li>/rpg_shop, /rpg_adventure</li>
+                                    <li>/rpg_info, /rpg_profile</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot genesis"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <div class="timeline-version">V1.0</div>
+                                    <div class="timeline-theme">大雜燴代碼的開始</div>
+                                </div>
+                                <div class="timeline-date">2024-7-29</div>
+                                <div class="timeline-desc">🎉 機器人的起點！Project-Zero 正式啓動</div>
+                                <div class="timeline-desc">新增基礎指令：</div>
+                                <ul class="timeline-features">
+                                    <li>blackjack, roll, memes, ping, echo</li>
+                                    <li>balance, work</li>
+                                    <li>ban, kick, shutdown, restart, help</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../scripts/develop_main.js"></script>
+</body>
+</html>
